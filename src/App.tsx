@@ -1,32 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { evento } from "./data/evento";
 import { produtos } from "./data/presentes";
-import { formatarPreco, imagem } from "./lib/format";
-import { useMala } from "./lib/mala";
+import { imagem } from "./lib/format";
 import { ProdutoCard } from "./components/ProdutoCard";
 import { MilhasCard } from "./components/MilhasCard";
-import { Checkout } from "./components/Checkout";
+import { Checkout, type Escolha } from "./components/Checkout";
 
 export default function App() {
-  const mala = useMala();
-  const [checkoutAberto, setCheckoutAberto] = useState(false);
-  const [aviso, setAviso] = useState("");
-
-  useEffect(() => {
-    if (!aviso) return;
-    const t = window.setTimeout(() => setAviso(""), 1800);
-    return () => window.clearTimeout(t);
-  }, [aviso]);
-
-  function adicionar(produtoId: string, nome: string) {
-    mala.dispatch({ tipo: "adicionar", produtoId });
-    setAviso(`${nome} foi para a mala.`);
-  }
-
-  function adicionarLivre(valor: number) {
-    mala.dispatch({ tipo: "adicionarLivre", valor });
-    setAviso(`${formatarPreco(valor)} em milhas foram para a mala.`);
-  }
+  const [escolha, setEscolha] = useState<Escolha | null>(null);
 
   return (
     <div className="loja">
@@ -41,16 +22,10 @@ export default function App() {
               <small>{evento.voo}</small>
             </div>
           </div>
-          <button
-            type="button"
-            className="btn-mala"
-            onClick={() => setCheckoutAberto(true)}
-            aria-label={`Abrir mala com ${mala.quantidade} itens`}
-          >
+          <a className="btn-mala" href="#vitrine">
             <span aria-hidden>🧳</span>
-            <span className="btn-mala-texto">Mala</span>
-            {mala.quantidade > 0 ? <span className="badge">{mala.quantidade}</span> : null}
-          </button>
+            <span className="btn-mala-texto">Vitrine</span>
+          </a>
         </div>
       </header>
 
@@ -88,17 +63,17 @@ export default function App() {
       <main id="vitrine" className="vitrine">
         <div className="vitrine-cabecalho">
           <h2>Ofertas de bordo</h2>
-          <p>Preços de mentira, brinquedos de verdade. Estoque ilimitado — pode repetir.</p>
+          <p>Preços de mentira, brinquedos de verdade. Escolha um e pague com Pix.</p>
         </div>
         <div className="grade">
           {produtos.map((produto) => (
             <ProdutoCard
               key={produto.id}
               produto={produto}
-              onAdicionar={() => adicionar(produto.id, produto.nome)}
+              onEscolher={() => setEscolha({ nome: produto.nome, valor: produto.preco })}
             />
           ))}
-          <MilhasCard onAdicionar={adicionarLivre} />
+          <MilhasCard onEscolher={(valor) => setEscolha({ nome: "Milhas Edu Air", valor })} />
         </div>
       </main>
 
@@ -112,35 +87,7 @@ export default function App() {
         <p className="rodape-fino">Obrigado por embarcar nessa aventura com o {evento.homenageado}!</p>
       </footer>
 
-      {mala.quantidade > 0 ? (
-        <div className="barra-mala">
-          <div>
-            <strong>{formatarPreco(mala.total)}</strong>
-            <small>
-              {mala.quantidade} {mala.quantidade === 1 ? "item na mala" : "itens na mala"}
-            </small>
-          </div>
-          <button type="button" className="btn-primario" onClick={() => setCheckoutAberto(true)}>
-            Fechar a mala e pagar
-          </button>
-        </div>
-      ) : null}
-
-      {aviso ? (
-        <div className="toast" role="status">
-          {aviso}
-        </div>
-      ) : null}
-
-      {checkoutAberto ? (
-        <Checkout
-          itens={mala.itens}
-          total={mala.total}
-          onAlterar={(id, delta) => mala.dispatch({ tipo: "alterar", id, delta })}
-          onRemover={(id) => mala.dispatch({ tipo: "remover", id })}
-          onClose={() => setCheckoutAberto(false)}
-        />
-      ) : null}
+      {escolha ? <Checkout escolha={escolha} onClose={() => setEscolha(null)} /> : null}
     </div>
   );
 }

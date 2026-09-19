@@ -53,7 +53,7 @@ h3,
 }
 
 .loja {
-  padding-bottom: 96px;
+  padding-bottom: 40px;
 }
 
 /* Topo */
@@ -122,22 +122,6 @@ h3,
   color: var(--paper);
   cursor: pointer;
   font-weight: 700;
-}
-
-.btn-mala .badge {
-  position: absolute;
-  top: -8px;
-  right: -6px;
-  min-width: 22px;
-  height: 22px;
-  padding: 0 6px;
-  border-radius: 999px;
-  background: var(--yellow);
-  color: var(--navy);
-  font-size: 0.78rem;
-  font-weight: 800;
-  display: grid;
-  place-items: center;
 }
 
 /* Hero */
@@ -474,65 +458,6 @@ h3,
   font-size: 0.85rem;
 }
 
-/* Barra da mala */
-.barra-mala {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 15;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  max-width: 720px;
-  margin: 0 auto 12px;
-  padding: 10px 12px 10px 18px;
-  background: var(--navy);
-  color: var(--paper);
-  border-radius: 999px;
-  box-shadow: 0 16px 40px rgba(16, 38, 63, 0.35);
-}
-
-.barra-mala strong {
-  display: block;
-  font-size: 1.15rem;
-}
-
-.barra-mala small {
-  opacity: 0.85;
-  font-size: 0.78rem;
-}
-
-.barra-mala .btn-primario {
-  width: auto;
-  background: var(--yellow);
-  color: var(--navy);
-}
-
-.barra-mala .btn-primario:hover {
-  background: #ffd75e;
-}
-
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 84px;
-  z-index: 16;
-  transform: translateX(-50%);
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: var(--green);
-  color: var(--paper);
-  font-weight: 700;
-  font-size: 0.9rem;
-  box-shadow: var(--shadow);
-  white-space: nowrap;
-  max-width: calc(100vw - 32px);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 /* Checkout: cartão de embarque */
 .modal-fundo {
   position: fixed;
@@ -590,74 +515,11 @@ h3,
   font-size: 0.85rem;
 }
 
-.vazio {
-  text-align: center;
-  color: var(--muted);
-  padding: 24px 0;
-}
-
-.itens {
-  list-style: none;
-  margin: 12px 0 0;
-  padding: 0;
-  display: grid;
-  gap: 10px;
-}
-
-.itens li {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  align-items: center;
-  gap: 10px;
-}
-
-.item-info strong {
-  display: block;
-  color: var(--navy);
-  font-size: 0.95rem;
-}
-
-.item-info small {
-  color: var(--muted);
-}
-
-.qtd {
-  display: inline-flex;
-  align-items: center;
-  border: 2px solid var(--cream-dark);
-  border-radius: 999px;
-}
-
-.qtd button {
-  width: 30px;
-  height: 30px;
-  border: 0;
-  background: transparent;
-  color: var(--navy);
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-.qtd span {
-  min-width: 22px;
-  text-align: center;
-  font-weight: 800;
-}
-
-.item-total {
-  min-width: 74px;
-  text-align: right;
-  font-weight: 800;
-  color: var(--ink);
-}
-
 .total {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   margin-top: 14px;
-  padding-top: 12px;
-  border-top: 2px dashed var(--cream-dark);
   color: var(--navy);
 }
 
@@ -696,6 +558,16 @@ h3,
 .acoes {
   display: grid;
   gap: 8px;
+}
+
+.chave-visivel {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.chave-visivel strong {
+  color: var(--navy);
 }
 
 .feedback {
@@ -791,18 +663,6 @@ h3,
 
   .marca small {
     display: none;
-  }
-
-  .barra-mala {
-    left: 10px;
-    right: 10px;
-    margin-bottom: max(10px, env(safe-area-inset-bottom));
-    border-radius: 20px;
-  }
-
-  .barra-mala .btn-primario {
-    padding: 10px 14px;
-    font-size: 0.88rem;
   }
 
   .produto-milhas {

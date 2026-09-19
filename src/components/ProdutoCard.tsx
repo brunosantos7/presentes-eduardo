@@ -3,10 +3,10 @@ import { desconto, formatarPreco, formatarPrecoAbsurdo, imagem } from "../lib/fo
 
 type Props = {
   produto: Produto;
-  onAdicionar: () => void;
+  onEscolher: () => void;
 };
 
-export function ProdutoCard({ produto, onAdicionar }: Props) {
+export function ProdutoCard({ produto, onEscolher }: Props) {
   return (
     <article className="produto">
       <div className="produto-img">
@@ -28,8 +28,8 @@ export function ProdutoCard({ produto, onAdicionar }: Props) {
           <s>{formatarPrecoAbsurdo(produto.precoOriginal)}</s>
           <strong>{formatarPreco(produto.preco)}</strong>
         </div>
-        <button type="button" className="btn-primario" onClick={onAdicionar}>
-          Colocar na mala
+        <button type="button" className="btn-primario" onClick={onEscolher}>
+          Presentear com Pix
         </button>
       </div>
     </article>

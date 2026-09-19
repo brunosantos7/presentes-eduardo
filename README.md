@@ -1,6 +1,6 @@
 # Edu Air Free Shop · 1º aniversário do Eduardo
 
-“Loja de bordo” do primeiro aniversário do Eduardo: brinquedos de verdade com preços de brincadeira. O convidado coloca itens na mala, fecha a compra e paga o total com Pix (QR Code ou copia e cola) direto na chave.
+“Loja de bordo” do primeiro aniversário do Eduardo: brinquedos de verdade com preços de brincadeira. O convidado clica no presente e recebe o "cartão de embarque" com o QR Code e o Pix copia e cola já no valor do item.
 
 Site: https://brunosantos7.github.io/presentes-eduardo/
 

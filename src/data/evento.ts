@@ -5,7 +5,7 @@ export const evento = {
   titulo: "Apertem os cintos!",
   subtitulo: "Loja de bordo do 1º aniversário do Eduardo.",
   mensagem:
-    "Brinquedos de verdade com preços de brincadeira. Escolha, coloque na mala e pague com Pix — o valor cai direto na conta do papai.",
+    "Brinquedos de verdade com preços de brincadeira. Escolha um, clique e pague com Pix — o valor cai direto na conta do papai.",
   pix: {
     chave: "121.211.926-62",
     tipo: "CPF",

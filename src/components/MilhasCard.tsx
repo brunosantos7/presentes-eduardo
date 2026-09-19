@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 type Props = {
-  onAdicionar: (valor: number) => void;
+  onEscolher: (valor: number) => void;
 };
 
 const sugestoes = [25, 50, 100];
 
-export function MilhasCard({ onAdicionar }: Props) {
+export function MilhasCard({ onEscolher }: Props) {
   const [texto, setTexto] = useState("");
 
   const valor = Number.parseFloat(texto.replace(/\./g, "").replace(",", "."));
@@ -44,12 +44,9 @@ export function MilhasCard({ onAdicionar }: Props) {
           type="button"
           className="btn-primario"
           disabled={!valido}
-          onClick={() => {
-            onAdicionar(valor);
-            setTexto("");
-          }}
+          onClick={() => onEscolher(valor)}
         >
-          Colocar na mala
+          Presentear com Pix
         </button>
       </div>
     </article>
