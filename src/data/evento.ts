@@ -1,15 +1,16 @@
 export const evento = {
   homenageado: "Eduardo",
-  titulo: "Aniversário do Eduardo",
-  subtitulo: "Escolha um presente e pague na hora via Pix.",
+  loja: "Edu Air Free Shop",
+  voo: "Voo EDU-001 · Lisboa ⇄ Rio",
+  titulo: "Apertem os cintos!",
+  subtitulo: "Loja de bordo do 1º aniversário do Eduardo.",
   mensagem:
-    "Sua presença já é o melhor presente. Se quiser contribuir com algo da lista, o valor cai direto na chave Pix — sem intermediário e sem cadastro.",
+    "Brinquedos de verdade com preços de brincadeira. Escolha, coloque na mala e pague com Pix — o valor cai direto na conta do papai.",
   pix: {
     chave: "121.211.926-62",
     tipo: "CPF",
-    nomeRecebedor: "EDUARDO",
-    cidade: "CAMPO GRANDE",
+    // Nome e cidade viajam no código Pix mas o app do pagador mostra o nome cadastrado no banco.
+    nomeRecebedor: "BRUNO SANTOS",
+    cidade: "ARAGUARI",
   },
-  // Vazio até confirmar o número com o dono da lista.
-  whatsapp: "",
 } as const;
