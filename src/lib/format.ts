@@ -17,7 +17,9 @@ export function formatarPrecoAbsurdo(valor: number): string {
 
 export function desconto(original: number, atual: number): string {
   const pct = (1 - atual / original) * 100;
-  return `-${pct.toLocaleString("pt-BR", { maximumFractionDigits: pct > 99.9 ? 4 : 0 })}%`;
+  // Acima disso o número vira ruído; a piada funciona melhor com um teto fixo.
+  if (pct >= 99.9) return "-99,99%";
+  return `-${pct.toLocaleString("pt-BR", { maximumFractionDigits: 0 })}%`;
 }
 
 export function imagem(nome: string): string {

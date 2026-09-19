@@ -33,6 +33,7 @@ export function MilhasCard({ onAdicionar }: Props) {
         <label className="campo">
           <span>Outro valor (R$)</span>
           <input
+            name="milhas"
             inputMode="decimal"
             placeholder="Ex.: 80"
             value={texto}

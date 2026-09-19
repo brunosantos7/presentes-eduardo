@@ -311,7 +311,9 @@ h3,
 }
 
 .selo {
-  right: 10px;
+  top: auto;
+  bottom: 10px;
+  left: 10px;
   background: var(--yellow);
   color: var(--navy);
 }
