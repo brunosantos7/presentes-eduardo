@@ -27,6 +27,19 @@ describe("montarPixCopiaECola", () => {
     expect(payload.slice(-4)).toBe(crc16(payload.slice(0, -4)));
   });
 
+  it("usa apenas dígitos para chave CPF formatada", () => {
+    const payload = montarPixCopiaECola({
+      chave: "121.211.926-62",
+      nome: "Eduardo",
+      cidade: "Campo Grande",
+      valor: 50,
+    });
+
+    expect(payload).toContain("011112121192662");
+    expect(payload).not.toContain("121.211.926-62");
+    expect(payload.slice(-4)).toBe(crc16(payload.slice(0, -4)));
+  });
+
   it("omite o campo de valor quando não informado", () => {
     const payload = montarPixCopiaECola({
       chave: "11999999999",

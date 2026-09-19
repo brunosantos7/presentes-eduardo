@@ -5,10 +5,11 @@ export const evento = {
   mensagem:
     "Sua presença já é o melhor presente. Se quiser contribuir com algo da lista, o valor cai direto na chave Pix — sem intermediário e sem cadastro.",
   pix: {
-    chave: "dasilveirasantosbruno@gmail.com",
-    tipo: "E-mail",
+    chave: "121.211.926-62",
+    tipo: "CPF",
     nomeRecebedor: "EDUARDO",
     cidade: "CAMPO GRANDE",
   },
-  whatsapp: "5567996783380",
+  // Vazio até confirmar o número com o dono da lista.
+  whatsapp: "",
 } as const;

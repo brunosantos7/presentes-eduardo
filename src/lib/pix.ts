@@ -41,7 +41,10 @@ export function montarPixCopiaECola({
   valor,
   txid = "***",
 }: PixPayloadInput): string {
-  const chaveLimpa = chave.trim();
+  // Chave CPF/CNPJ/telefone vai só com dígitos no BR Code; e-mail e aleatória ficam como estão.
+  const chaveLimpa = /^[\d.\-/() +]+$/.test(chave.trim())
+    ? chave.replace(/\D/g, "")
+    : chave.trim();
   const nomeLimpo = semAcento(nome).slice(0, 25) || "RECEBEDOR";
   const cidadeLimpa = semAcento(cidade).slice(0, 15) || "BRASIL";
   const txidLimpo = txid.replace(/[^A-Za-z0-9*]/g, "").slice(0, 25) || "***";
